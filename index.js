@@ -5,7 +5,7 @@ const fs = require("fs");
 const app = express();
 const PORT = 8000;
 
-app.use(express.urlencoded({extended:false}));
+app.use(express.urlencoded({ extended: false }));
 
 // ROUTES
 app.get("/users", (req, res) => {
@@ -22,6 +22,7 @@ app.get("/api/users", (req, res) => {
   return res.json(users);
 });
 
+
 app
   .route("/api/users/:id")
   .get((req, res) => {
@@ -30,10 +31,32 @@ app
     return res.json(user);
   })
   .patch((req, res) => {
-    return res.json({ status: "Pending" });
+    const id = Number(req.params.id);
+    const body = req.body;
+    const index = users.findIndex((user) => user.id === id);
+    if (index !== -1) {
+      users[index] = { ...users[index], ...body };
+      fs.writeFile("./MOCK_DATA.json", JSON.stringify(users), (err, data) => {
+        return res.json({ status: "SUCCESS", updatedUser: users[index] });
+      });
+    } else {
+      return res.status(404).json({ error: "User not found" });
+    }
   })
   .delete((req, res) => {
-    return res.json({ status: "Pending" });
+    const id = Number(req.params.id);
+    const index = users.findIndex((user) => user.id === id);
+    if (index !== -1) {
+      users.splice(index, 1);
+      fs.writeFile("./MOCK_DATA.json", JSON.stringify(users), (err, data) => {
+        return res.json({
+          status: "SUCCESS",
+          message: "User deleted successfully",
+        });
+      });
+    } else {
+      return res.status(404).json({ error: "User not found" });
+    }
   });
 
 app.post("/api/users", (req, res) => {
