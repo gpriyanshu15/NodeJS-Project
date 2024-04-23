@@ -6,3 +6,6 @@
  1713785840590 : ::1 , GET , /api/users/1003
  1713867236579 : ::1 , POST , /api/users
  1713867299681 : ::1 , POST , /api/users
+ 1713867700057 : ::1 , POST , /api/users
+ 1713867899912 : ::1 , GET , /api/users/2000
+ 1713867929293 : ::1 , GET , /api/users/1
