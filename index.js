@@ -7,6 +7,17 @@ const PORT = 8000;
 
 app.use(express.urlencoded({ extended: false }));
 
+// Middleware
+app.use((req, res, next) => {
+  fs.appendFile(
+    "log.txt",
+    `\n ${Date.now()} : ${req.ip} , ${req.method} , ${req.path}`,
+    (err, data) => {
+      next();
+    }
+  );
+});
+
 // ROUTES
 app.get("/users", (req, res) => {
   const html = `
@@ -21,7 +32,6 @@ app.get("/users", (req, res) => {
 app.get("/api/users", (req, res) => {
   return res.json(users);
 });
-
 
 app
   .route("/api/users/:id")
@@ -63,7 +73,7 @@ app.post("/api/users", (req, res) => {
   const body = req.body;
   users.push({ ...body, id: users.length + 1 });
   fs.writeFile("./MOCK_DATA.json", JSON.stringify(users), (err, data) => {
-    return res.json({ status: "SUCCESS", id: users.length });
+    return res.status(201).json({ status: "SUCCESS", id: users.length });
   });
 });
 
