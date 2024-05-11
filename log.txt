@@ -9,3 +9,22 @@
  1713867700057 : ::1 , POST , /api/users
  1713867899912 : ::1 , GET , /api/users/2000
  1713867929293 : ::1 , GET , /api/users/1
+ 1715410393371 : ::1 , POST , /api/users
+ 1715410428847 : ::1 , POST , /api/users
+ 1715410700016 : ::1 , POST , /api/users
+ 1715410919450 : ::1 , POST , /api/users
+ 1715410994056 : ::1 , POST , /api/users
+ 1715411013550 : ::1 , POST , /api/users
+ 1715411055050 : ::1 , POST , /api/users
+ 1715412522312 : ::1 , GET , /users
+ 1715412702135 : ::1 , GET , /users
+ 1715412702283 : ::1 , GET , /favicon.ico
+ 1715412717961 : ::1 , GET , /users
+ 1715412815998 : ::1 , POST , /api/users
+ 1715412838412 : ::1 , GET , /users
+ 1715412901975 : ::1 , GET , /api/users
+ 1715412975921 : ::1 , GET , /api/users
+ 1715412980705 : ::1 , GET , /api/users
+ 1715413156961 : ::1 , GET , /api/users/663f170cc30cafa69c8dbaca
+ 1715413428676 : ::1 , PATCH , /api/users/663f186f2059f745d27ed408
+ 1715413545276 : ::1 , DELETE , /api/users/663f17e7523a548c8398516f
