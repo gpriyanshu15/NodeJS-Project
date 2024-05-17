@@ -10,7 +10,7 @@ To run this project locally, follow these steps:
 2. Navigate to the project directory in your terminal.
 3. Install the dependencies by running `npm install`.
 4. Ensure you have MongoDB installed and running locally.
-5. Start the server by running `node app.js`. The server will start on port 8000.
+5. Start the server by running `node index.js`. The server will start on port 8000.
 
 ## Routes
 
